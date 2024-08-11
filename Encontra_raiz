@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+//código que encontra o valor de raiz de 2 por método numérico, usando o método da bisecção.
+
+float calculavalor(float x){
+  return (x*x-2);
+}
+
+int main(void) {
+  
+  float a=1.0;
+  float b=2.0;
+  float valormedio=0.0;
+  
+  while((b-a)>0.00001){
+    valormedio=(a+b)/2;
+    float novoponto=calculavalor(valormedio);
+    if(novoponto<0){
+      a=valormedio;
+    }
+    if(novoponto>0){
+      b=valormedio;
+    }
+  }
+  printf("O valor encontrado para raiz de 2 foi: %f\n", valormedio);
+  return 0;
+}
